@@ -1,0 +1,76 @@
+/* Centraliza a tela */
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Caixa de login */
+.login {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    width: 300px;
+    border: 1px solid #ddd;
+}
+
+/* Título */
+.login h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Formulário */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Campos */
+input {
+    padding: 10px;
+    font-size: 16px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Botão */
+button {
+    padding: 10px;
+    font-size: 16px;
+
+    border: none;
+    border-radius: 4px;
+
+    background-color: #555;
+    color: white;
+
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+/* Mensagem de erro */
+.erro {
+    color: #d00000; /* vermelho */
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Mensagem de sucesso */
+.sucesso {
+    color: #008000; /* verde */
+    text-align: center;
+    font-weight: bold;
+}
