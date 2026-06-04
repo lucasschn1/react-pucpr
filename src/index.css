@@ -63,14 +63,14 @@ button:hover {
 
 /* Mensagem de erro */
 .erro {
-    color: #d00000; /* vermelho */
+    color: #d00000; 
     text-align: center;
     font-weight: bold;
 }
 
 /* Mensagem de sucesso */
 .sucesso {
-    color: #008000; /* verde */
+    color: #008000; 
     text-align: center;
     font-weight: bold;
 }
