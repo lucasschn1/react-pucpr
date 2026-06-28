@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import Login from './pages/Login'
+import AppRoutes from './routes';
 
 function App() {
 
   return (
-    <Login></Login>
+    <AppRoutes></AppRoutes>
   );
 }
 

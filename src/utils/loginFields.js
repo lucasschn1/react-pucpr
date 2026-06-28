@@ -4,6 +4,3 @@ const loginFields = [
 ]
 
 export default loginFields;
-
-
-   
