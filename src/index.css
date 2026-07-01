@@ -1,76 +1,112 @@
-/* Centraliza a tela */
+/* Centraliza a tela inteira */
 body {
     margin: 0;
     min-height: 100vh;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f4f4;
 }
 
-/* Caixa de login */
-.login {
+/* Caixas Principais (Cartões das 3 telas) */
+.login, .cadastro, .usuario {
     background-color: white;
-    padding: 25px;
+    padding: 30px;
     border-radius: 8px;
-    width: 300px;
+    width: 350px; /* Um pouco mais largo para caber os dados e os 5 inputs confortavelmente */
     border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Sombra bem sutil para dar destaque */
 }
 
-/* Título */
-.login h2 {
+/* Títulos gerais */
+h2 {
     text-align: center;
+    margin-top: 0;
     margin-bottom: 20px;
     color: #333;
 }
 
-/* Formulário */
+/* Formulários */
 form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px; /* Espaço um pouco maior entre os inputs */
 }
 
-/* Campos */
+/* Campos de texto */
 input {
-    padding: 10px;
-    font-size: 16px;
-
+    padding: 12px;
+    font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    outline: none; /* Remove aquela borda preta grossa padrão dos navegadores */
+    transition: border-color 0.2s;
 }
 
-/* Botão */
-button {
-    padding: 10px;
-    font-size: 16px;
+/* Efeito ao clicar no input (Feedback visual) */
+input:focus {
+    border-color: #777; 
+}
 
+/* Botões padrões */
+button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
     border-radius: 4px;
-
-    background-color: #555;
+    background-color: #333; /* Cor neutra e elegante */
     color: white;
-
     cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 5px;
 }
 
 button:hover {
-    background-color: #444;
+    background-color: #555;
 }
 
-/* Mensagem de erro */
+/* Links do React Router (O seu botão de "Cadastre-se") */
+a {
+    display: block;
+    text-align: center;
+    color: #555;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo específico para a lista de dados da tela Principal (.usuario) */
+.usuario p {
+    margin: 12px 0;
+    font-size: 16px;
+    color: #444;
+    border-bottom: 1px solid #eee; /* Cria uma linha divisória sutil entre os dados */
+    padding-bottom: 8px;
+}
+
+.usuario strong {
+    color: #222; /* Deixa o rótulo "Nome:", "Email:" mais escuro que o dado em si */
+}
+
+/* Mensagens de feedback */
 .erro {
     color: #d00000; 
     text-align: center;
     font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
-/* Mensagem de sucesso */
 .sucesso {
     color: #008000; 
     text-align: center;
     font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
 }

@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { auth } from '../services/firebaseConnection';
+import { auth , db } from '../services/firebaseConnection';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { db } from '../services/firebaseConnection';
 import { doc, setDoc } from 'firebase/firestore';
 
 
@@ -41,7 +40,11 @@ function Formulario() {
     }
 
     return (
-        <form onSubmit={cadastrar}>
+        <div className="cadastro">
+
+            <h1>Cadastre-se</h1>
+
+            <form onSubmit={cadastrar}>
             <input
                 type="text"
                 placeholder="Nome"
@@ -79,7 +82,9 @@ function Formulario() {
 
             <button type="submit">Salvar</button>
             
-        </form>
+            </form>
+
+        </div>
     );
 }
 

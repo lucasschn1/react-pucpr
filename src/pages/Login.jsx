@@ -1,25 +1,34 @@
 import React, {useState} from "react";
 import loginFields from "../utils/loginFields";
+import { auth } from '../services/firebaseConnection';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useNavigate, Link } from 'react-router-dom';
 
 export default function Login() {
+    const navigate = useNavigate();
 
     const [fieldEmail, setEmail] = useState('');
     const [fieldPassword, setPassword] = useState('');
     const [fieldMessage, setMessage] = useState('');
     const [messageType, setMessageType] = useState('');
 
-    {/* Função para validar o login */}
     const validarLogin = (event) => {
         event.preventDefault();
 
-        if (fieldEmail != 'lucas@email.com' || fieldPassword != "123456") {
-            setMessage("E-mail ou senha incorretos");
-            setMessageType("erro");
-        } else {
-            setMessage("Login bem sucedido!");
-            setMessageType("sucesso");
-        }
+        signInWithEmailAndPassword(auth , fieldEmail, fieldPassword)
+        .then((userCredential) => {
+            // usuário logado
+            console.log("Usuário logado: ", userCredential.user.uid);
+            // redireciona pra página principal
+            navigate('/principal'); 
 
+        })
+        . catch((error) => {
+            // Erro (ex: senha errada ou usuário nãp existe)
+            console.log("Erro: ", error);
+            setMessage("E-mail ou senha incorretos");
+            setMessageType("error");
+        });
     }
 
     return (
@@ -49,6 +58,9 @@ export default function Login() {
 
                 <button type="submit">Entrar</button>
 
+                <Link to="/cadastro" className="botao-cadastro">
+                    Não tem uma conta? Cadastre-se
+                </Link>
 
                 {fieldMessage && <p className={messageType}>
                     {fieldMessage}
