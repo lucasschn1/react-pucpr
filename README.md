@@ -1,35 +1,121 @@
-# Sistema de Login em React - Parte 1
+# Sistema de Autenticação com React e Firebase - Somativa Final
 
-Este repositório contém a entrega da Parte 1 do trabalho prático de frontend. O projeto é uma tela de login simples construída utilizando React e Vite.
+Este repositório contém a entrega final do trabalho prático (Somativa 2 ) de Tecnologias Para Desenvolvimento Web. O projeto evoluiu de uma tela de login estática para uma aplicação web completa, integrada a serviços em nuvem e com navegação entre múltiplas páginas.
 
-## Sobre o projeto
+---
 
-O objetivo dessa primeira etapa foi estruturar a interface visual do login e aplicar a lógica básica de validação do formulário utilizando os conceitos do React.
+## Deploy
 
-O que foi implementado no código:
-- Renderização de lista: Os campos de e-mail e senha são desenhados na tela usando o método .map(), puxando as informações de um array guardado no arquivo utilitário loginFields.js.
-- Estados do React: Uso do hook useState para capturar e guardar os dados que o usuário digita nos campos (onChange).
-- Validação: O envio do formulário é interceptado pelo evento onSubmit. O sistema verifica se o e-mail digitado é "lucas@email.com" e a senha é "123456".
-- Retorno em tela: Dependendo do resultado da validação, o sistema atualiza um estado de mensagem para avisar se o login foi bem sucedido ou se as credenciais estão incorretas.
-- Layout: Estilização do index.css utilizando Flexbox para centralizar a caixa de login no meio da tela.
+O projeto foi hospedado no **Netlify** e pode ser acessado pelo link abaixo:
 
-## Como rodar o projeto localmente
+🔗 **Acessar a aplicação:**  
+https://projeto-somativa2-pucpr.netlify.app/
 
-Para testar o código na sua máquina, siga os passos abaixo no terminal:
+---
 
-1. Clone o repositório:
+## Sobre o Projeto
+
+O objetivo desta etapa final foi implementar um fluxo de autenticação real, conectando a interface desenvolvida em React ao Firebase, protegendo rotas e gerenciando sessões de usuários.
+
+### Funcionalidades implementadas
+
+- **React Router DOM**
+  - Criação de três páginas:
+    - Cadastro
+    - Login
+    - Principal
+  - Navegação fluida (Single Page Application - SPA).
+  - Proteção e redirecionamento de rotas.
+
+- **Firebase Authentication**
+  - Cadastro de novos usuários.
+  - Login utilizando e-mail e senha.
+  - Gerenciamento de autenticação.
+
+- **Cloud Firestore**
+  - Armazenamento dos dados adicionais do usuário:
+    - Nome
+    - Sobrenome
+    - Data de nascimento
+  - Associação dos dados ao UID gerado pelo Firebase Authentication.
+
+- **Gerenciamento de Sessão**
+  - Utilização do `useEffect`.
+  - Monitoramento do estado de autenticação com `onAuthStateChanged`.
+  - Uso de `async/await` para recuperar automaticamente os dados do usuário ao acessar a página principal.
+
+- **Formatação de Dados**
+  - Conversão da data de nascimento para o formato brasileiro (`dd/mm/aaaa`).
+
+- **Deploy**
+  - Build da aplicação utilizando **Vite**.
+  - Hospedagem no **Netlify**.
+  - Configuração do arquivo `_redirects` para funcionamento correto das rotas.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+- React
+- Vite
+- React Router DOM
+- Firebase Authentication
+- Cloud Firestore
+- JavaScript
+- HTML5
+- CSS3
+- Netlify
+
+---
+
+## Como executar o projeto localmente
+
+### 1. Clone o repositório
+
+```bash
 git clone https://github.com/lucasschn1/react-pucpr.git
+```
 
-2. Acesse a pasta do projeto:
+### 2. Acesse a pasta do projeto
+
+```bash
 cd react-pucpr
+```
 
-3. Instale as dependências (para recriar a pasta node_modules):
+### 3. Instale as dependências
+
+```bash
 npm install
+```
 
-4. Inicie o servidor local:
+### 4. Inicie o servidor de desenvolvimento
+
+```bash
 npm run dev
+```
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+src/
+├── components/
+├── pages/
+│   ├── Cadastro/
+│   ├── Login/
+│   └── Principal/
+├── routes/
+├── services/
+│   └── firebaseConnection.js
+├── App.jsx
+└── main.jsx
+```
+
+---
 
 ## Autor
 
-Lucas Schneider Cordeiro
-Estudante de Análise e Desenvolvimento de Sistemas (ADS) - PUCPR.
+**Lucas Schneider Cordeiro**
+
+Estudante de **Análise e Desenvolvimento de Sistemas (ADS)** — **PUCPR**
