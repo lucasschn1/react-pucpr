@@ -10,6 +10,7 @@ function Formulario() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [dataNascimento, setDataNascimento] = useState("");
+    const [mensagemSucesso, setMensagemSucesso] = useState("");
 
     function cadastrar(event) {
         // evitar recarregar a página
@@ -31,6 +32,8 @@ function Formulario() {
                 email: email,
                 dataNascimento: dataNascimento
             });
+
+            setMensagemSucesso("Usuário salvo com sucesso!");
         })
 
         .catch((error) => {
@@ -73,6 +76,7 @@ function Formulario() {
                 onChange={(e) => setSenha(e.target.value)}
             />
 
+            <label style={{ fontSize: '14px', color: '#555', textAlign: 'left' }}>Data de Nascimento:</label>
             <input
                 type="Date"
                 placeholder="Data de nascimento"
@@ -81,6 +85,7 @@ function Formulario() {
             />
 
             <button type="submit">Salvar</button>
+            {mensagemSucesso && <p className="sucesso">{mensagemSucesso}</p>}
             
             </form>
 
